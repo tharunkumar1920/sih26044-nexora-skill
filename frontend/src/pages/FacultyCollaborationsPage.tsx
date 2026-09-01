@@ -126,7 +126,8 @@ export const FacultyCollaborationsPage: React.FC = () => {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
-                  className="w-full px-3 py-2 rounded-xl border text-xs outline-none"
+                  placeholder="e.g. Joint AI Research Project"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-xs outline-none focus:ring-2 focus:ring-purple-500"
                 />
               </div>
               <div>
@@ -134,7 +135,7 @@ export const FacultyCollaborationsPage: React.FC = () => {
                 <select
                   value={type}
                   onChange={(e) => setType(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border text-xs outline-none bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-semibold text-xs outline-none focus:ring-2 focus:ring-purple-500"
                 >
                   <option value="Research">Joint Research</option>
                   <option value="FDP">Faculty Development Program</option>
@@ -148,7 +149,8 @@ export const FacultyCollaborationsPage: React.FC = () => {
                   value={desc}
                   onChange={(e) => setDesc(e.target.value)}
                   required
-                  className="w-full px-3 py-2 rounded-xl border text-xs outline-none h-20"
+                  placeholder="Describe the collaboration objective..."
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-xs outline-none h-20 focus:ring-2 focus:ring-purple-500"
                 />
               </div>
               <div className="flex justify-end space-x-2 pt-2">

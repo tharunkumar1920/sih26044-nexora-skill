@@ -259,7 +259,8 @@ export const RecruiterPostOpportunityPage: React.FC = () => {
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
                   required
-                  className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-sky-500"
+                  placeholder="e.g. Senior Data Analyst Internship"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-xs outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition"
                 />
               </div>
 
@@ -269,7 +270,7 @@ export const RecruiterPostOpportunityPage: React.FC = () => {
                   <select
                     value={newType}
                     onChange={(e) => setNewType(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-semibold text-xs outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition"
                   >
                     <option value="internship">Internship</option>
                     <option value="job">Full-Time Job</option>
@@ -281,7 +282,7 @@ export const RecruiterPostOpportunityPage: React.FC = () => {
                   <select
                     value={newMode}
                     onChange={(e) => setNewMode(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-semibold text-xs outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition"
                   >
                     <option value="Remote">Remote</option>
                     <option value="Hybrid">Hybrid</option>
@@ -296,7 +297,8 @@ export const RecruiterPostOpportunityPage: React.FC = () => {
                   value={newDesc}
                   onChange={(e) => setNewDesc(e.target.value)}
                   required
-                  className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs outline-none h-20"
+                  placeholder="Describe role responsibilities, team environment, and expectations..."
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-xs outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 h-20 transition"
                 />
               </div>
 
@@ -308,7 +310,8 @@ export const RecruiterPostOpportunityPage: React.FC = () => {
                     value={newStipend}
                     onChange={(e) => setNewStipend(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl border text-xs outline-none"
+                    placeholder="e.g. ₹20,000 / month"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-xs outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition"
                   />
                 </div>
                 <div>
@@ -318,7 +321,8 @@ export const RecruiterPostOpportunityPage: React.FC = () => {
                     value={newDur}
                     onChange={(e) => setNewDur(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl border text-xs outline-none"
+                    placeholder="e.g. 6 Months"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-xs outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition"
                   />
                 </div>
               </div>

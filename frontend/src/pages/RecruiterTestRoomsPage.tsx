@@ -193,7 +193,7 @@ export const RecruiterTestRoomsPage: React.FC = () => {
                   onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
                   required
                   placeholder="e.g. Python & SQL Assessment - Batch 2026"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none bg-white transition"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none transition"
                 />
               </div>
               <div>
@@ -203,7 +203,7 @@ export const RecruiterTestRoomsPage: React.FC = () => {
                   value={form.description}
                   onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
                   placeholder="Brief description of the assessment"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none bg-white transition"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none transition"
                 />
               </div>
             </div>
@@ -243,7 +243,7 @@ export const RecruiterTestRoomsPage: React.FC = () => {
                   max={50}
                   value={form.num_questions}
                   onChange={e => setForm(f => ({ ...f, num_questions: parseInt(e.target.value) || 10 }))}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none bg-white transition"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 font-semibold text-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none transition"
                 />
               </div>
               <div>
@@ -257,7 +257,7 @@ export const RecruiterTestRoomsPage: React.FC = () => {
                   max={180}
                   value={form.duration_minutes}
                   onChange={e => setForm(f => ({ ...f, duration_minutes: parseInt(e.target.value) || 30 }))}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none bg-white transition"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 font-semibold text-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none transition"
                 />
               </div>
             </div>

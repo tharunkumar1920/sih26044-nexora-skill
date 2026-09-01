@@ -86,7 +86,7 @@ export const InstitutionTaxonomyPage: React.FC = () => {
             placeholder="Search skill taxonomy..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500 outline-none"
+            className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-xs focus:ring-2 focus:ring-amber-500 outline-none"
           />
         </div>
 
@@ -198,7 +198,8 @@ export const InstitutionTaxonomyPage: React.FC = () => {
                   value={newSkillName}
                   onChange={(e) => setNewSkillName(e.target.value)}
                   required
-                  className="w-full px-3 py-2 rounded-xl border text-xs outline-none"
+                  placeholder="e.g. LLM Fine-Tuning"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-xs outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </div>
               <div>
@@ -206,7 +207,7 @@ export const InstitutionTaxonomyPage: React.FC = () => {
                 <select
                   value={newSkillCat}
                   onChange={(e) => setNewSkillCat(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border text-xs outline-none bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-semibold text-xs outline-none focus:ring-2 focus:ring-amber-500"
                 >
                   <option value="Technical">Technical</option>
                   <option value="Soft Skill">Soft Skill</option>
@@ -219,7 +220,8 @@ export const InstitutionTaxonomyPage: React.FC = () => {
                   value={newSkillDesc}
                   onChange={(e) => setNewSkillDesc(e.target.value)}
                   required
-                  className="w-full px-3 py-2 rounded-xl border text-xs outline-none h-20"
+                  placeholder="Describe the skill definition..."
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium placeholder-slate-400 text-xs outline-none h-20 focus:ring-2 focus:ring-amber-500"
                 />
               </div>
               <div className="flex justify-end space-x-2 pt-2">
