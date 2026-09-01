@@ -29,18 +29,10 @@ def register(user_data: UserRegister, db: Session = Depends(get_db)):
     if not is_valid:
         raise HTTPException(status_code=400, detail=pwd_error)
 
-    # Recruiter-specific security: validate email domain matches official domain
+    # Recruiter registration validation
     if user_data.role == UserRole.RECRUITER.value:
         if not user_data.college_or_company:
             raise HTTPException(status_code=400, detail="Company/Organization name is required for recruiter registration")
-        if user_data.official_domain:
-            email_domain = user_data.email.split("@")[-1].lower()
-            official = user_data.official_domain.lower().strip()
-            if email_domain != official:
-                raise HTTPException(
-                    status_code=400,
-                    detail=f"Email domain '@{email_domain}' does not match official domain '@{official}'. Please use your authorized institutional email."
-                )
 
     new_user = User(
         email=user_data.email,
@@ -63,8 +55,8 @@ def register(user_data: UserRegister, db: Session = Depends(get_db)):
             registration_number=user_data.registration_number or None,
             official_domain=user_data.official_domain or None,
             website=user_data.company_website or None,
-            verification_status="pending",
-            is_approved=False
+            verification_status="verified",
+            is_approved=True
         )
         db.add(company)
     elif user_data.role == UserRole.FACULTY.value:

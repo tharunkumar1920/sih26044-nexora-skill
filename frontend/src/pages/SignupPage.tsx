@@ -6,7 +6,7 @@ import { NexoraLogo } from '../components/NexoraLogo';
 import {
   Eye, EyeOff, GraduationCap, Briefcase, Award, Building2,
   ArrowRight, User, Mail, Lock, Phone, BookOpen, CheckCircle2,
-  Shield, Globe, FileText, AlertTriangle
+  AlertTriangle
 } from 'lucide-react';
 import { UserRole } from '../types';
 
@@ -93,14 +93,6 @@ export const SignupPage: React.FC = () => {
       if (!form.college_name.trim()) {
         setError('Company/Organization name is required for recruiters.');
         return;
-      }
-      if (form.official_domain) {
-        const emailDomain = form.email.split('@')[1]?.toLowerCase();
-        const officialDomain = form.official_domain.toLowerCase().trim();
-        if (emailDomain !== officialDomain) {
-          setError(`Email domain '@${emailDomain}' does not match official domain '@${officialDomain}'. Please use your authorized institutional email.`);
-          return;
-        }
       }
     }
 
@@ -308,54 +300,7 @@ export const SignupPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* ─── Recruiter Security Fields ────────────────────────────────────── */}
-              {selectedRole === 'recruiter' && (
-                <div className="space-y-4 p-4 bg-sky-500/5 border border-sky-500/20 rounded-2xl">
-                  <div className="flex items-center space-x-2 text-xs font-bold text-sky-400">
-                    <Shield className="w-4 h-4" />
-                    <span>Institution Authorization</span>
-                  </div>
 
-                  {/* Registration Number */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1.5">Company Registration Number <span className="text-slate-500 font-normal">(CIN/GSTIN/DIPP)</span></label>
-                    <div className="relative">
-                      <FileText className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                      <input type="text" value={form.registration_number} onChange={set('registration_number')}
-                        placeholder="e.g. U72200KA2021PTC123456"
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700 bg-slate-800/80 text-white placeholder-slate-500 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition" />
-                    </div>
-                  </div>
-
-                  {/* Official Domain */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1.5">Official Email Domain <span className="text-slate-500 font-normal">(for verification)</span></label>
-                    <div className="relative">
-                      <Globe className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                      <input type="text" value={form.official_domain} onChange={set('official_domain')}
-                        placeholder="e.g. tcs.com, infosys.com"
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700 bg-slate-800/80 text-white placeholder-slate-500 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition" />
-                    </div>
-                    <p className="text-[10px] text-slate-500 mt-1">Your email address must belong to this domain for verified access</p>
-                  </div>
-
-                  {/* Company Website */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1.5">Company Website</label>
-                    <div className="relative">
-                      <Globe className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                      <input type="url" value={form.company_website} onChange={set('company_website')}
-                        placeholder="https://www.company.com"
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700 bg-slate-800/80 text-white placeholder-slate-500 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition" />
-                    </div>
-                  </div>
-
-                  <div className="bg-sky-500/10 border border-sky-500/20 rounded-xl p-3 text-[11px] text-sky-300 flex items-start space-x-2">
-                    <Shield className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                    <span>Your organization will be verified after registration. Features like Test Rooms and Candidate Matching are available upon approval.</span>
-                  </div>
-                </div>
-              )}
 
               {/* Password */}
               <div>
