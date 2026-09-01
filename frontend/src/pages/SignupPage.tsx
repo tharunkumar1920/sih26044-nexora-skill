@@ -97,26 +97,41 @@ export const SignupPage: React.FC = () => {
     }
 
     setLoading(true);
+    const cleanEmail = form.email.trim();
+    const cleanName = form.full_name.trim();
+    const cleanCollege = form.college_name.trim();
+    const cleanRegNum = form.registration_number.trim();
+    const cleanDomain = form.official_domain.trim();
+    const cleanWebsite = form.company_website.trim();
+
     try {
       await authService.register({
-        full_name: form.full_name,
-        email: form.email,
+        full_name: cleanName,
+        email: cleanEmail,
         password: form.password,
         role: selectedRole,
-        college_or_company: form.college_name || undefined,
-        registration_number: form.registration_number || undefined,
-        official_domain: form.official_domain || undefined,
-        company_website: form.company_website || undefined,
+        college_or_company: cleanCollege || undefined,
+        registration_number: cleanRegNum || undefined,
+        official_domain: cleanDomain || undefined,
+        company_website: cleanWebsite || undefined,
       });
       // Auto-login after registration
-      await login(form.email, form.password);
+      await login(cleanEmail, form.password);
       const role = localStorage.getItem('sih_role');
       if (role === 'recruiter') navigate('/recruiter');
       else if (role === 'faculty') navigate('/faculty');
       else if (role === 'institution_admin') navigate('/institution');
       else navigate('/onboard');
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Registration failed. Please try again.');
+      let errorMsg = 'Registration failed. Please try again.';
+      if (err.response?.data?.detail) {
+        if (typeof err.response.data.detail === 'string') {
+          errorMsg = err.response.data.detail;
+        } else if (Array.isArray(err.response.data.detail)) {
+          errorMsg = err.response.data.detail.map((e: any) => e.msg || e.message || 'Invalid input').join(', ');
+        }
+      }
+      setError(errorMsg);
     }
     setLoading(false);
   };

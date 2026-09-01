@@ -1,15 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.core.database import engine, Base
+from app.core.database import engine, Base, init_db_schema
 from app.api import (
     auth_router, students_router, opportunities_router, assessments_router,
     recommendations_router, recruiters_router, faculty_router,
     institution_router, portfolio_router, analytics_router, test_rooms_router
 )
 
-# Initialize database schema automatically
-Base.metadata.create_all(bind=engine)
+# Initialize database schema automatically (tables + column migrations)
+init_db_schema()
 
 app = FastAPI(
     title=settings.PROJECT_NAME,

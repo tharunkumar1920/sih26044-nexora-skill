@@ -57,7 +57,7 @@ export const LoginPage: React.FC = () => {
     setLoading(true);
 
     try {
-      await login(email, password);
+      await login(email.trim(), password);
       const userRole = localStorage.getItem('sih_role');
 
       if (userRole === 'student') {
@@ -83,7 +83,15 @@ export const LoginPage: React.FC = () => {
         navigate('/dashboard');
       }
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Invalid email or password. Please verify your credentials.');
+      let errorMsg = 'Invalid email or password. Please verify your credentials.';
+      if (err.response?.data?.detail) {
+        if (typeof err.response.data.detail === 'string') {
+          errorMsg = err.response.data.detail;
+        } else if (Array.isArray(err.response.data.detail)) {
+          errorMsg = err.response.data.detail.map((e: any) => e.msg || e.message || 'Invalid input').join(', ');
+        }
+      }
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }
